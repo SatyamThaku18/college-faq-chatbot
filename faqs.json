@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Where is the college located?",
+    "answer": "The college is located in Greater Noida, Uttar Pradesh. You can check Google Maps for the exact pin."
+  },
+  {
+    "question": "What are the college timings?",
+    "answer": "Classes usually run from 9:00 AM to 4:30 PM, Monday to Saturday."
+  },
+  {
+    "question": "Is attendance compulsory?",
+    "answer": "Yes, a minimum of 75% attendance is required to appear for exams."
+  },
+  {
+    "question": "Does the college have WiFi?",
+    "answer": "Yes, high-speed WiFi is available throughout the campus for all students."
+  },
+  {
+    "question": "Does the college have a canteen?",
+    "answer": "Yes, there are multiple canteens offering snacks, meals, and beverages."
+  },
+  {
+    "question": "Is smoking allowed inside the campus?",
+    "answer": "No, smoking is strictly prohibited inside the campus."
+  },
+  {
+    "question": "Does the college provide sports facilities?",
+    "answer": "Yes, there are facilities for cricket, football, basketball, badminton, and indoor games."
+  },
+  {
+    "question": "Is medical facility available in the college?",
+    "answer": "Yes, a medical room with a nurse and basic first aid is available inside the campus."
+  },
+  {
+    "question": "Is there a library in the campus?",
+    "answer": "Yes, the central library provides books, journals, and digital resources."
+  },
+  {
+    "question": "What are the admission requirements?",
+    "answer": "You need to fill the online application, upload documents, and pay the admission fee. Cutoffs vary by branch."
+  },
+  {
+    "question": "What documents are required for admission?",
+    "answer": "10th/12th marksheets, Aadhar card, photos, transfer certificate, migration certificate, and scorecard if applicable."
+  },
+  {
+    "question": "How to apply for admission?",
+    "answer": "Visit the college website, fill the application form, and submit required documents online."
+  },
+  {
+    "question": "Is there any entrance exam?",
+    "answer": "Some colleges accept JEE, CUET, or state entrance exams depending on the course."
+  },
+  {
+    "question": "How much is the B.Tech fee?",
+    "answer": "The average fee ranges between ₹85,000 – ₹1,20,000 per year depending on the branch."
+  },
+  {
+    "question": "What is the hostel fee?",
+    "answer": "Hostel fee ranges from ₹50,000 to ₹80,000 per year depending on room type."
+  },
+  {
+    "question": "Is transportation available?",
+    "answer": "Yes, buses are available across Delhi-NCR for students and staff."
+  },
+  {
+    "question": "What is the refund policy?",
+    "answer": "Fee refunds follow AICTE/UGC guidelines. A written request must be submitted."
+  },
+  {
+    "question": "How can I contact the admission office?",
+    "answer": "You can call the official helpline number or email the admission department through the website."
+  },
+  {
+    "question": "Are first-year students allowed in hostel?",
+    "answer": "Yes, hostel rooms are available for first-year students."
+  },
+  {
+    "question": "Is hostel mess food good?",
+    "answer": "Mess food follows a weekly menu with both vegetarian and non-vegetarian options."
+  },
+  {
+    "question": "Are visitors allowed in hostel?",
+    "answer": "Visitors are allowed only during designated visiting hours."
+  },
+  {
+    "question": "Is ragging allowed?",
+    "answer": "No, ragging is strictly prohibited with strict action against offenders."
+  },
+  {
+    "question": "Are mobile phones allowed in classes?",
+    "answer": "Mobiles are allowed but must be kept silent during lectures."
+  },
+  {
+    "question": "Is there a dress code?",
+    "answer": "Many colleges follow formals or uniform for specific days, especially for first-year."
+  },
+  {
+    "question": "Does the campus have ATM?",
+    "answer": "Yes, an ATM facility is available near the main building."
+  },
+  {
+    "question": "What is the placement percentage?",
+    "answer": "Most engineering branches achieve 80–95% placement depending on performance."
+  },
+  {
+    "question": "What companies visit for placements?",
+    "answer": "Popular companies include TCS, Infosys, Wipro, HCL, Tech Mahindra, Amazon, and many more."
+  },
+  {
+    "question": "What is the highest package?",
+    "answer": "Top packages range from ₹15 LPA to ₹30 LPA depending on the college and branch."
+  },
+  {
+    "question": "What is the average package?",
+    "answer": "Average package ranges from ₹3.5 LPA to ₹6 LPA."
+  },
+  {
+    "question": "Is internship mandatory?",
+    "answer": "Yes, most engineering colleges require summer internships for B.Tech students."
+  },
+  {
+    "question": "Does the college support research projects?",
+    "answer": "Yes, students can apply for research funding or work with faculty on projects."
+  },
+  {
+    "question": "Are semester exams difficult?",
+    "answer": "Not very difficult if you attend lectures and practice previous year papers."
+  },
+  {
+    "question": "Is there a placement training program?",
+    "answer": "Yes, aptitude, coding, communication skills, and interview training are provided."
+  },
+  {
+    "question": "What languages are taught in CSE?",
+    "answer": "Common languages include Python, C, C++, Java, and JavaScript."
+  },
+  {
+    "question": "Does CSE have more placements?",
+    "answer": "Yes, CSE and IT branches have the highest placement rates."
+  },
+  {
+    "question": "Is coding compulsory in CSE?",
+    "answer": "Yes, coding is a core part of the CSE curriculum."
+  },
+  {
+    "question": "Does the college teach AI and machine learning?",
+    "answer": "Yes, modern CSE programs include AI, ML, and Data Science subjects."
+  },
+  {
+    "question": "What is AIML branch?",
+    "answer": "AIML focuses on Artificial Intelligence and Machine Learning technologies."
+  },
+  {
+    "question": "Is AIML better than CSE?",
+    "answer": "AIML is specialized while CSE is broader. Both have strong career opportunities."
+  },
+  {
+    "question": "Does AIML have good placements?",
+    "answer": "Yes, AIML graduates are in high demand in tech companies."
+  },
+  {
+    "question": "What do ECE students study?",
+    "answer": "Subjects include electronics, circuits, communication systems, and embedded systems."
+  },
+  {
+    "question": "Is coding required in ECE?",
+    "answer": "Basic coding is required, especially in embedded and IoT fields."
+  },
+  {
+    "question": "Do ECE students get IT jobs?",
+    "answer": "Yes, many ECE students get placed in IT and software companies."
+  },
+  {
+    "question": "Is mechanical engineering still good?",
+    "answer": "Yes, mechanical engineers are needed in manufacturing, automotive, HVAC, and robotics."
+  },
+  {
+    "question": "Do mechanical students get software jobs?",
+    "answer": "Yes, with coding skills they can switch to software roles."
+  },
+  {
+    "question": "Are labs important in mechanical engineering?",
+    "answer": "Yes, practical labs are essential in understanding machines and manufacturing."
+  },
+  {
+    "question": "Is civil engineering good?",
+    "answer": "Yes, civil engineering has demand in construction, infrastructure, and urban development."
+  },
+  {
+    "question": "Do civil engineers get placed on campus?",
+    "answer": "Yes, many companies hire civil engineers through campus placements."
+  },
+  {
+    "question": "Is field work required in civil engineering?",
+    "answer": "Yes, site visits and field work are a major part of the course."
+  },
+  {
+    "question": "When the last freshers party held?",
+    "answer": "The last one was on 15th nov."
+  }
+]
