@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ITS College — FAQ Chatbot</title>
+
+  <style>
+    :root{
+      --bg: #0b0b0d;
+      --panel: rgba(20,20,22,0.85);
+      --gold: #ffcc33;
+      --muted: #bdbdbd;
+      --accent: #ffd24d;
+      --glass: rgba(255,255,255,0.04);
+      --radius: 16px;
+      --max-width: 920px;
+    }
+
+    html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial;}
+    body {
+      background: linear-gradient(180deg, #061018 0%, #071428 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      padding:28px;
+      color:#fff;
+    }
+
+    .container {
+      width:100%;
+      max-width:var(--max-width);
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr; padding: 12px;}
+    }
+
+    .left {
+      background: linear-gradient(180deg, rgba(255,204,51,0.06), rgba(255,204,51,0.02));
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height:420px;
+    }
+    /* FIX: Keep the left panel visible while scrolling the chat */
+.left {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+      }
+
+
+    .brand { display:flex; gap:12px; align-items:center; }
+    .logo {
+      width:56px;height:56px;border-radius:12px;background:var(--gold);
+      display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:20px;
+    }
+    .title {font-size:1.1rem;font-weight:700;color:#fff;}
+    .subtitle {font-size:0.85rem;color:var(--muted);margin-top:2px}
+
+    .quick {
+      background:var(--panel);
+      border-radius:12px;
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      font-size:0.95rem;
+    }
+
+    .faq-btn {
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      padding:10px 12px;border-radius:10px;
+      text-align:left; cursor:pointer; color:#fff;
+      display:flex;justify-content:space-between;align-items:center;
+      gap:8px;
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .faq-btn:hover{transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.6);}
+
+    .faq-question{font-weight:600;font-size:0.95rem}
+    .faq-meta{font-size:0.82rem;color:var(--muted)}
+
+    .left-footer { margin-top:auto; font-size:0.85rem; color:var(--muted); }
+
+    .chat-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      min-height:420px;
+    }
+
+    .chat-header { display:flex;align-items:center;gap:12px;padding:8px 8px;border-bottom:1px solid rgba(255,255,255,0.03); }
+    .chat-title {font-weight:700; font-size:1rem}
+    .chat-sub {color:var(--muted); font-size:0.86rem}
+
+    .chat-box {
+      padding:14px;
+      display:flex;flex-direction:column; gap:12px;
+      overflow:auto; flex:1; scroll-behavior:smooth;
+    }
+
+    .msg {
+      max-width:78%;
+      padding:10px 12px;border-radius:12px;
+      word-wrap:break-word; white-space:pre-wrap;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+    .msg.bot {
+      background: linear-gradient(180deg,#121212,#15181a);
+      color:#fff; align-self:flex-start;
+      border-top-left-radius:4px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .msg.user {
+      background: linear-gradient(90deg,var(--gold), #ffd36a);
+      color:#000; align-self:flex-end;
+      border-top-right-radius:4px;
+    }
+
+    .meta { display:flex;gap:8px;align-items:center;font-size:0.78rem;color:var(--muted);margin-top:6px; }
+    .badge {
+      background:var(--glass);padding:4px 8px;border-radius:999px;font-weight:600;color:var(--muted);font-size:0.78rem;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .chat-input {
+      display:flex; gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,0.03);
+      align-items:center;
+    }
+    .chat-input input {
+      flex:1;padding:12px;border-radius:12px;border:none;background:#0f1112;color:#fff;font-size:1rem;
+      outline:none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+    .chat-input button {
+      background:var(--gold); border:none; padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .chat-input button:active{transform:scale(.98)}
+
+    .typing { display:inline-block;font-style:italic;color:var(--muted); }
+    .typing span{display:inline-block;width:6px;height:6px;margin:0 3px;background:var(--muted);border-radius:50%;animation:dot 1.2s infinite}
+    .typing span:nth-child(2){animation-delay:.15s}
+    .typing span:nth-child(3){animation-delay:.3s}
+    @keyframes dot{0%,80%,100%{opacity:0}40%{opacity:1}}
+
+    .muted { color:var(--muted); font-size:0.92rem; }
+    .center { text-align:center; }
+
+    .chat-box::-webkit-scrollbar { width:8px }
+    .chat-box::-webkit-scrollbar-thumb { background: rgba(255,204,51,0.18); border-radius:8px }
+
+    /* Speak button */
+    .speak-btn {
+      margin-left: 8px;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      color: var(--gold);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .speak-btn:hover { background: rgba(255,204,51,0.15); }
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <!-- Left -->
+    <aside class="left" aria-label="Quick menu">
+      <div class="brand">
+        <div class="logo">ITS</div>
+        <div>
+          <div class="title">ITS Engineering College</div>
+          <div class="subtitle">Student help & FAQ assistant</div>
+        </div>
+      </div>
+
+      <div class="quick" id="quickFaqs">
+        <!-- Quick FAQ buttons inserted by JS -->
+      </div>
+
+      <div class="left-footer">
+        Tip: Try quick questions or type any question in the chat. Works on mobile.
+      </div>
+    </aside>
+
+    <!-- Right -->
+    <main class="chat-panel" aria-live="polite">
+      <div class="chat-header">
+        <div>
+          <div class="chat-title">College FAQ Chatbot</div>
+          <div class="chat-sub">Answers sourced from FAQs or a friendly assistant</div>
+        </div>
+      </div>
+
+      <div id="chatBox" class="chat-box" role="log" aria-atomic="false">
+        <div class="msg bot">
+          <strong>Hi — I’m the ITS assistant 👋</strong>
+          <div class="meta"><span class="badge">FAQ</span><span class="muted">Try: "What is the hostel fee?"</span></div>
+        </div>
+      </div>
+
+      <div class="chat-input" role="search">
+        <input id="userInput" type="text" placeholder="Type your question, or tap a quick FAQ…" aria-label="Type your question" />
+        <button id="sendBtn" aria-label="Send message">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const quickFaqList = [
+      {q: "What are the college admission requirements?"},
+      {q: "What is the hostel fee?"},
+      {q: "Where is the college located?"},
+      {q: "How to contact the administration?"}
+    ];
+
+    const chatBox = document.getElementById("chatBox");
+    const userInput = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+    const quickFaqs = document.getElementById("quickFaqs");
+
+    quickFaqList.forEach(item => {
+      const btn = document.createElement("button");
+      btn.className = "faq-btn";
+      btn.innerHTML = `<div class="faq-question">${item.q}</div><div class="faq-meta">Ask</div>`;
+      btn.addEventListener("click", () => {
+        userInput.value = item.q;
+        userInput.focus();
+        sendMessage();
+      });
+      quickFaqs.appendChild(btn);
+    });
+
+    function appendMessage(text, who='bot', opts={badge:null}) {
+      const wrap = document.createElement("div");
+      wrap.className = 'msg ' + (who === 'user' ? 'user' : 'bot');
+      wrap.innerText = text;
+
+      if (who === 'bot') {
+        const speakBtn = document.createElement('button');
+        speakBtn.className = 'speak-btn';
+        speakBtn.innerText = '🔊 Speak';
+        speakBtn.addEventListener('click', () => {
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.lang = 'en-US';
+          speechSynthesis.speak(utter);
+        });
+        wrap.appendChild(speakBtn);
+      }
+
+      if (opts.badge) {
+        const m = document.createElement('div');
+        m.className = 'meta';
+        const b = document.createElement('span');
+        b.className = 'badge';
+        b.innerText = opts.badge;
+        m.appendChild(b);
+        wrap.appendChild(m);
+      }
+
+      chatBox.appendChild(wrap);
+      chatBox.scrollTop = chatBox.scrollHeight + 200;
+    }
+
+    function showTyping() {
+      const row = document.createElement('div');
+      row.className = 'msg bot typingRow';
+      row.id = 'typingRow';
+      row.innerHTML = '<span class="typing"><span></span><span></span><span></span></span>';
+      chatBox.appendChild(row);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function removeTyping() {
+      const t = document.getElementById('typingRow');
+      if (t) t.remove();
+    }
+
+    async function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+      appendMessage(text, 'user');
+      userInput.value = '';
+      userInput.focus();
+
+      showTyping();
+
+      try {
+        const res = await fetch('/chat', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({message: text})
+        });
+
+        removeTyping();
+
+        if (!res.ok) {
+          const err = await res.json().catch(()=>({reply:"Network error"}));
+          appendMessage(err.reply || "Server error", 'bot', {badge: "System"});
+          return;
+        }
+
+        const data = await res.json();
+        const badge = data.source || "System";
+        appendMessage(data.reply, 'bot', {badge: badge});
+      } catch (e) {
+        removeTyping();
+        appendMessage("⚠️ Could not reach server. Check your backend.", 'bot', {badge: "System"});
+        console.error(e);
+      }
+    }
+
+    userInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    sendBtn.addEventListener('click', sendMessage);
+    window.addEventListener('load', () => userInput.focus());
+  </script>
+</body>
+</html>
